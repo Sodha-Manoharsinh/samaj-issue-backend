@@ -1,0 +1,13 @@
+# --- Core Backend ---
+Flask
+Flask-Cors
+
+# --- JWT Authentication ---
+flask-jwt-extended
+python-dotenv
+supabase
+# --- File Uploads (if using Cloudinary) ---
+cloudinary
+
+# --- Utilities ---
+gunicorn        # Production-ready server
