@@ -11,7 +11,11 @@ from routes.summary import summary_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
-CORS(app, origins="https://samaj-issue-frontend.vercel.app", supports_credentials=True)
+CORS(app,
+     origins=["https://samaj-issue-frontend.vercel.app"],
+     supports_credentials=True,
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 
 # JWT setup
@@ -24,6 +28,11 @@ app.register_blueprint(upvote_bp, url_prefix="/api") # tested complete
 app.register_blueprint(comment_bp, url_prefix="/api") # tested complete
 app.register_blueprint(admin_bp, url_prefix="/api") # tested complete
 app.register_blueprint(summary_bp, url_prefix="/api") # tested complete
+
+@app.route("/api/ping")
+def ping():
+    return {"message": "pong"}, 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)
