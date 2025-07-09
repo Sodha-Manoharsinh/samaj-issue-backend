@@ -12,7 +12,7 @@ from routes.summary import summary_bp
 app = Flask(__name__)
 app.config.from_object(Config)
 CORS(app,
-     origins=["https://samaj-issue-frontend.vercel.app"],
+     origins=["https://samaj-issue-frontend.vercel.app","http://localhost:5173"],
      supports_credentials=True,
      allow_headers=["Content-Type", "Authorization"],
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
